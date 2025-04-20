@@ -5,7 +5,6 @@ const server = Bun.serve({
     // ** HTML imports **
     // Bundle & route index.html to "/". This uses HTMLRewriter to scan the HTML for `<script>` and `<link>` tags, run's Bun's JavaScript & CSS bundler on them, transpiles any TypeScript, JSX, and TSX, downlevels CSS with Bun's CSS parser and serves the result.
     "/": homepage,
-    // Bundle & route dashboard.html to "/dashboard"
   },
 
   // Prior to v1.2.3, the `fetch` option was used to handle all API requests. It is now optional.
