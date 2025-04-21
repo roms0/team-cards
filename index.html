@@ -8,6 +8,9 @@
 <script src="./main.ts" module async>
 </script>
 <style>
+    :root {
+        --hold: 600px;
+    }
     html {
         height: 100svh;
         overflow: hidden;
@@ -28,14 +31,28 @@
         color: blueviolet;
     }
     section {
-        max-width: 600px;
+        width: var(--hold);
+        max-width: var(--hold);
+    }
+    .app-canvas {
+        max-width: var(--hold);
+        height: 420px;
     }
 </style>
 <body>
     <section>
     <p>hi I am <span>roms</span> this is my page. I like scripting in JS/TS + making webapps + doing interfaces.</p>
     </section>
-    <canvas width="600" height="400" id="canvas"></canvas>
-    <dialog id="context"> hi</dialog>
+    <section class="app-canvas">
+        <canvas id="canvas"></canvas>
+    </section>
+    <section dropzone="true">
+        <p>vibing responsible industrious misterious gloomy</p>
+        <p></p>
+    </section>
+    <section dropzone="true" id="droppable">
+        <p>droppable</p>
+    </section>
+    <p id="draggable" draggable="true">draggable</p>
 </body>
 </html>
