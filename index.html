@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>roms</title>
 </head>
-<script src="./main.ts" module async>
-</script>
+<link rel="stylesheet" href="https://unpkg.com/reset-css/reset.css"/>
 <style>
     :root {
-        --hold: 600px;
+        --offset-xs: 0.5rem;
+        --offset: 2rem;
+        --content-width: 40rem;
     }
     html {
         height: 100svh;
@@ -21,9 +22,8 @@
         height: 100%;
         display: flex;
         flex-flow: column;
-        font-size: 0.8rem;
+        font-size: 1rem;
         align-items: center;
-        justify-content: center;
         gap: 1rem;
     }
     span {
@@ -31,28 +31,16 @@
         color: blueviolet;
     }
     section {
-        width: var(--hold);
-        max-width: var(--hold);
+        max-width: var(--content-width);
     }
-    .app-canvas {
-        max-width: var(--hold);
-        height: 420px;
+    p {
+        margin-top: var(--offset);
     }
 </style>
 <body>
     <section>
     <p>hi I am <span>roms</span> this is my page. I like scripting in JS/TS + making webapps + doing interfaces.</p>
+    <p>these days I prepare to interviews, meet my friends, read books, go to work, chat with LLM and plot games.</p>
     </section>
-    <section class="app-canvas">
-        <canvas id="canvas"></canvas>
-    </section>
-    <section dropzone="true">
-        <p>vibing responsible industrious misterious gloomy</p>
-        <p></p>
-    </section>
-    <section dropzone="true" id="droppable">
-        <p>droppable</p>
-    </section>
-    <p id="draggable" draggable="true">draggable</p>
 </body>
 </html>
