@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://unpkg.com/reset-css/reset.css"/>
 <style>
     :root {
-        --offset-xs: 0.5rem;
         --offset: 2rem;
         --content-width: 40rem;
     }
@@ -24,7 +23,6 @@
         flex-flow: column;
         font-size: 1rem;
         align-items: center;
-        gap: 1rem;
     }
     span {
         display: inline-block;
@@ -32,15 +30,27 @@
     }
     section {
         max-width: var(--content-width);
+        padding: 0 calc(var(--offset) * 0.4);
+    }
+    h1, h2 {
+        margin-top: calc(var(--offset) * 2);
+        text-align: center;
     }
     p {
-        margin-top: var(--offset);
+        margin-top: calc(var(--offset) * 0.6);
     }
 </style>
 <body>
     <section>
-    <p>hi I am <span>roms</span> this is my page. I like scripting in JS/TS + making webapps + doing interfaces.</p>
-    <p>these days I prepare to interviews, meet my friends, read books, go to work, chat with LLM and plot games.</p>
+        <h1>hi i am <span>roms</span></h1>
+        <p>this is my page. I like scripting in JS/TS + making webapps + doing interfaces.</p>
+        <p>these days I prepare to interviews, meet my friends, read books, go to work, chat with LLM and plot games.</p>
     </section>
+    <section>
+        <h2>a game <span>in wip</span> status</h2>
+        <p>it is a card-driven single-player merge of a rougelike with empire building about leading a team.</p>
+    </section>
+    <section><p id="slot"></p></section>
 </body>
+<script src="./main.ts" async module></script>
 </html>
