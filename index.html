@@ -6,10 +6,17 @@
     <title>roms</title>
 </head>
 <link rel="stylesheet" href="https://unpkg.com/reset-css/reset.css"/>
+<link rel="stylesheet" href="./main.css"/>
 <style>
     :root {
         --offset: 2rem;
+        --offset-xs: 0.2rem;
+        --offset-s: 0.5rem;
         --content-width: 40rem;
+        --accent: blueviolet;
+    }
+    * {
+        box-sizing: border-box;
     }
     html {
         height: 100svh;
@@ -24,33 +31,58 @@
         font-size: 1rem;
         align-items: center;
     }
-    span {
+    span.resource {
         display: inline-block;
-        color: blueviolet;
+        background: linear-gradient(to right, #fc466b, #3f5efb);
+        font-weight: 600;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    span.attention {
+        display: inline-block;
+        background: linear-gradient(to right, #f2709c, #ff9472);
+        font-weight: 600;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     section {
         max-width: var(--content-width);
-        padding: 0 calc(var(--offset) * 0.4);
+        padding: 0 var(--offset-s);
     }
     h1, h2 {
-        margin-top: calc(var(--offset) * 2);
+        margin-top: var(--offset);
         text-align: center;
     }
     p {
-        margin-top: calc(var(--offset) * 0.6);
+        margin-top: var(--offset-s);
+    }
+    #a-deck-showcase {
+        margin-top: var(--offset);
+        display: flex;
+        padding: var(--offset-xs);
+        gap: var(--offset);
+        flex-wrap: wrap;
     }
 </style>
 <body>
     <section>
-        <h1>hi i am <span>roms</span></h1>
+        <h1>hi i am <span class="resource">roms</span></h1>
         <p>this is my page. I like scripting in JS/TS + making webapps + doing interfaces.</p>
         <p>these days I prepare to interviews, meet my friends, read books, go to work, chat with LLM and plot games.</p>
     </section>
     <section>
-        <h2>a game <span>in wip</span> status</h2>
+        <h2>a game <span class="attention">in wip</span> status</h2>
         <p>it is a card-driven single-player merge of a rougelike with empire building about leading a team.</p>
     </section>
-    <section><p id="slot"></p></section>
+    <section>
+        <div id="a-deck-showcase"></div>
+    </section>
+
+    <template id="first-edition-card-template">
+        <div class="first-edition-card">
+        </div>
+    </template>
+    <section id="slot"></section>
 </body>
 <script src="./main.ts" async module></script>
 </html>
