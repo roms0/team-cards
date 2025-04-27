@@ -8,6 +8,8 @@ const server = Bun.serve({
     "/": homepage,
     "/doc": doc,
     "/sw": () => new Response(Bun.file("./sw/sw.ts")),
+    "/pics/desk.png": () => new Response(Bun.file("./pics/desks.png")),
+    "/pics/plant.png": () => new Response(Bun.file("./pics/plants.png")),
   },
 
   // Prior to v1.2.3, the `fetch` option was used to handle all API requests. It is now optional.

@@ -40,10 +40,11 @@ fromEvent(document, "click")
   .subscribe(title);
 
 const data = [
-  { title: "first", content: "description of a cool card", cost: 3 },
   { title: "another", content: "some robust mechanics", cost: 12 },
   { title: "third nice", content: "some robust mechanics", cost: 40 },
   { title: "last ultimative", content: "some robust mechanics", cost: 63 },
+  { title: "from nice dlc", content: "bought from dlc", cost: 200 },
+  { title: "a pretty much rare one", content: "...", cost: 450 },
 ];
 
 const template = document.querySelector(
@@ -64,7 +65,12 @@ window.addEventListener("DOMContentLoaded", () => {
       }>${k.cost}</span> ${k.title}</p>`;
       container.style.cssText = `animation-delay: ${
         factor * 1000
-      }ms; animation-name: ${factor > 0.5 ? "attent" : "attent-reverse"}`;
+      }ms; animation-name: bounce`;
+
+      const img = document.createElement("img");
+      img.src = `pics/${factor > 0.5 ? "desk.png" : "plant.png"}`;
+      img.style.cssText = `aspect-ratio: 1; width: 70%`;
+      container.appendChild(img);
     }
     fragment.append(item);
   }

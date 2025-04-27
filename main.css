@@ -1,29 +1,43 @@
 .first-edition-card {
     width: 5rem;
-    height: 5rem;
+    height: 6rem;
     border-radius: 1rem;
     font-size: 0.8rem;
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-    padding: var(--offset-s);
+    padding: var(--offset-xs);
     animation-iteration-count: infinite;
-    animation-duration: 3s;
+    animation-duration: 1.4s;
     word-break: break-all;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: white;
+    p {
+        width: 100%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
 }
 
-@keyframes attent {
+
+@keyframes bounce {
     from, to {
         transform: matrix(1.00,0.00,0.00,1.00,0,0);
     }
+    15% {
+        transform: matrix(1.00,0.00,0.00,1.00,0,0);
+    }
+    30% {
+        transform: matrix(1.00,0.00,0.00,1.00,0,-4);
+    }
     50% {
-        transform: matrix(0.99,0.17,-0.09,1.00,0,0);
+        transform: matrix(1.00,0.00,0.00,1.00,0,0);
+    }
+    70% {
+        transform: matrix(1.00,0.00,0.00,1.00,0,-4);
+    }
+    85% {
+        transform: matrix(1.00,0.00,0.00,1.00,0,0);
     }
 }
 
-@keyframes attent-reverse {
-    from, to {
-        transform: matrix(1.00,0.00,0.00,1.00,0,0);
-    }
-    50% {
-        transform: matrix(1.02,-0.07,0.09,1.00,0,0);
-    }
-}

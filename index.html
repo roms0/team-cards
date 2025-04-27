@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <title>roms</title>
 </head>
 <link rel="stylesheet" href="https://unpkg.com/reset-css/reset.css"/>
 <link rel="stylesheet" href="./main.css"/>
 <style>
     :root {
+        --offset-lg: 4rem;
         --offset: 2rem;
         --offset-xs: 0.2rem;
         --offset-s: 0.5rem;
-        --content-width: 40rem;
+        --content-width: 60rem;
         --accent: blueviolet;
+        --peach: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+        --sun: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+        --lavender: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+        --deep-sea: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,105,148,1) 15.6%, rgba(0,163,217,1) 51.9%, rgba(0,194,226,1) 81% );
+        --burgundy: linear-gradient( 90.1deg,  rgba(122,0,0,1) 8.1%, rgba(217,42,42,1) 74.4% );
     }
     * {
         box-sizing: border-box;
@@ -34,6 +41,7 @@
     span.resource {
         display: inline-block;
         background: linear-gradient(to right, #fc466b, #3f5efb);
+        background: var(--deep-sea);
         font-weight: 600;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -41,6 +49,7 @@
     span.attention {
         display: inline-block;
         background: linear-gradient(to right, #f2709c, #ff9472);
+        background: var(--burgundy);
         font-weight: 600;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -50,7 +59,7 @@
         padding: 0 var(--offset-s);
     }
     h1, h2 {
-        margin-top: var(--offset);
+        margin-top: var(--offset-lg);
         text-align: center;
     }
     p {
@@ -60,13 +69,13 @@
         margin-top: var(--offset);
         display: flex;
         padding: var(--offset-xs);
-        gap: var(--offset);
+        gap: var(--offset-s);
         flex-wrap: wrap;
     }
 </style>
 <body>
     <section>
-        <h1>hi i am <span class="resource">roms</span></h1>
+        <h1>hi i am <span class="resource">roma klimov</span></h1>
         <p>this is my page. I like scripting in JS/TS + making webapps + doing interfaces.</p>
         <p>these days I prepare to interviews, meet my friends, read books, go to work, chat with LLM and plot games.</p>
     </section>
