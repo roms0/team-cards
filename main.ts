@@ -31,13 +31,13 @@ title.subscribe((text) => {
   }
 });
 
-fromEvent(document, "click")
-  .pipe(
-    switchMap(() =>
-      from(titles).pipe(concatMap((title) => of(title).pipe(delay(400))))
-    )
-  )
-  .subscribe(title);
+// fromEvent(document, "click")
+//   .pipe(
+//     switchMap(() =>
+//       from(titles).pipe(concatMap((title) => of(title).pipe(delay(400))))
+//     )
+//   )
+//   .subscribe(title);
 
 const data = [
   { title: "another", content: "some robust mechanics", cost: 12 },
@@ -76,4 +76,9 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   safe_append("a-deck-showcase", fragment);
+
+  const cards = document.getElementsByClassName("first-edition-card");
+  if (cards) {
+    fromEvent(cards, "click").subscribe(console.log);
+  }
 });

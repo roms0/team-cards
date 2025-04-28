@@ -10,17 +10,32 @@
 <link rel="stylesheet" href="./main.css"/>
 <style>
     :root {
+        --font: light-dark(#2f2f2f, whitesmoke);
+        --font-weight: normal;
+        --font-weight-wide: bold;
+        --background-1: light-dark(whitesmoke, #2f2f2f);
+        --blur-base: light-dark(rgba(17, 17, 26, 0.05), snow);
+        --blur: light-dark(rgba(17, 17, 26, 0.1), whitesmoke);
+        --shadow-1: var(--blur-base) 0px 1px 0px, var(--blur) 0px 0px 8px;
+
         --offset-lg: 4rem;
         --offset: 2rem;
         --offset-xs: 0.2rem;
         --offset-s: 0.5rem;
         --content-width: 60rem;
         --accent: blueviolet;
-        --peach: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
-        --sun: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
-        --lavender: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
-        --deep-sea: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,105,148,1) 15.6%, rgba(0,163,217,1) 51.9%, rgba(0,194,226,1) 81% );
-        --burgundy: linear-gradient( 90.1deg,  rgba(122,0,0,1) 8.1%, rgba(217,42,42,1) 74.4% );
+
+        --gradient-base: linear-gradient(90deg, blueviolet 0%,  rgba(0,105,148,1) 15.6%);
+        --gradient: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --font-weight: lighter;
+            --font-weight-wide: normal;
+            
+            --gradient-base: linear-gradient(90deg, blueviolet 0%,  rgba(0,194,226,1) 81%);
+            --gradient: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+        }
     }
     * {
         box-sizing: border-box;
@@ -28,10 +43,10 @@
     html {
         height: 100svh;
         overflow: hidden;
+        background-color: var(--background-1);
     }
     body {
         font-family: monospace;
-        font-weight: 500;
         height: 100%;
         display: flex;
         flex-flow: column;
@@ -39,20 +54,18 @@
         align-items: center;
     }
     span.resource {
-        display: inline-block;
-        background: linear-gradient(to right, #fc466b, #3f5efb);
-        background: var(--deep-sea);
-        font-weight: 600;
-        background-clip: text;
+        background: var(--gradient);
         -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
     span.attention {
-        display: inline-block;
-        background: linear-gradient(to right, #f2709c, #ff9472);
-        background: var(--burgundy);
-        font-weight: 600;
-        background-clip: text;
+        background: var(--gradient-base);
         -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    span {
+        font-weight: var(--font-weight-wide);
+        display: inline-block;
     }
     section {
         max-width: var(--content-width);
@@ -61,9 +74,13 @@
     h1, h2 {
         margin-top: var(--offset-lg);
         text-align: center;
+        color: var(--font);
+        font-weight: var(--font-weight);
     }
     p {
         margin-top: var(--offset-s);
+        color: var(--font);
+        font-weight: var(--font-weight);
     }
     #a-deck-showcase {
         margin-top: var(--offset);
