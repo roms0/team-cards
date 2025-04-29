@@ -26,7 +26,7 @@
         --content-width: 60rem;
         --accent: blueviolet;
 
-        --gradient-base: linear-gradient(90deg, blueviolet 0%,  rgba(0,105,148,1) 15.6%);
+        --gradient-base: linear-gradient(90deg, rgb(56, 131, 160) 30%,  rgb(76, 171, 208) 85.6%);
         --gradient: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
     }
     @media (prefers-color-scheme: dark) {
@@ -34,7 +34,7 @@
             --font-weight: lighter;
             --font-weight-wide: normal;
             
-            --gradient-base: linear-gradient(90deg, blueviolet 0%,  rgba(0,194,226,1) 81%);
+            --gradient-base: linear-gradient(90deg, rgb(88, 156, 183) 40%,  rgba(0,194,226,1) 81%);
             --gradient: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
         }
     }
@@ -90,6 +90,11 @@
         gap: var(--offset-s);
         flex-wrap: wrap;
     }
+    #world {
+        width: 400px;
+        height: 400px;
+        overflow: hidden;
+    }
 </style>
 <body>
     <section>
@@ -110,6 +115,7 @@
         </div>
     </template>
     <section id="slot"></section>
+    <section id="world"></section>
 </body>
 <script src="./main.ts" async module></script>
 </html>
