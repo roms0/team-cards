@@ -5,6 +5,7 @@ import {
   from,
   fromEvent,
   map,
+  merge,
   Observable,
   of,
   startWith,
@@ -92,13 +93,22 @@ function install(id: string) {
       }
     });
 
-  fromEvent(touch, "click")
+  merge(fromEvent(touch, "click"), fromEvent(touch, "touchstart"))
     .pipe(
-      filter((e) => e instanceof PointerEvent),
+      map((e) => {
+        if (e instanceof PointerEvent) {
+          return [e.clientX, e.clientY];
+        }
+        if (e instanceof TouchEvent) {
+          return [e.touches[0].clientX, e.touches[0].clientY];
+        }
+        return null;
+      }),
+      filter((data) => data !== null),
       withLatestFrom(position),
-      map(([e, [px, py]]) => {
-        const shiftx = -Math.trunc(width / 2 - (e.clientX - x));
-        const shifty = -Math.trunc(height / 2 - (e.clientY - y));
+      map(([event, [px, py]]) => {
+        const shiftx = -Math.trunc(width / 2 - (event[0] - x));
+        const shifty = -Math.trunc(height / 2 - (event[1] - y));
         return [px + shiftx, py + shifty];
       }),
       filter((target) => {
